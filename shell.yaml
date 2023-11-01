@@ -1,0 +1,19 @@
+- hosts: local
+  connection: local
+  become: yes
+  become_user: root
+  tasks:
+    - name: upgrade all packages
+      ansible.builtin.package:
+        name: "*"
+        state: latest
+        update_cache: yes
+    - name: install zsh
+      ansible.builtin.package:
+        name: zsh
+        state: latest
+    - name: change shell
+      become: yes
+      user:
+        name: zilq
+        shell: /bin/zsh
