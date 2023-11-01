@@ -1,0 +1,21 @@
+- hosts: local
+  connection: local
+  tasks:
+    - name: enable flatpak repo
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    - name: enable flatpak beta repo
+      community.general.flatpak_remote:
+        name: flathub-beta
+        state: present
+        flatpakrepo_url: https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+    - name: install spotify
+      community.general.flatpak:
+        name: com.spotify.Client
+        state: present
+    - name: install skype
+      community.general.flatpak:
+        name: com.skype.Client
+        state: present
