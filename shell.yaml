@@ -2,6 +2,8 @@
   connection: local
   become: yes
   become_user: root
+  vars_files:
+    - 'vars_{{ package_manager }}.yaml'
   tasks:
     - name: upgrade all packages
       ansible.builtin.package:
@@ -10,10 +12,10 @@
         update_cache: yes
     - name: install zsh
       ansible.builtin.package:
-        name: zsh
+        name: '{{ zsh }}'
         state: latest
     - name: change shell
       become: yes
       user:
-        name: zilq
+        name: '{{ user }}'
         shell: /bin/zsh
