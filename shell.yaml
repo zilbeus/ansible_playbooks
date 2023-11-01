@@ -19,3 +19,7 @@
       user:
         name: '{{ user }}'
         shell: /bin/zsh
+    - name: download and install antigen plugin manager for zsh
+      ansible.builtin.get_url:
+        url: https://git.io/antigen
+        dest: '/home/{{ user }}/antigen.zsh'
