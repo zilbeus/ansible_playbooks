@@ -1,0 +1,2 @@
+- import_playbook: shell.yaml
+- import_playbook: flatpaks.yaml
