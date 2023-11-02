@@ -1,0 +1,16 @@
+- hosts: local
+  connection: local
+  become: yes
+  become_user: root
+  vars_files:
+    - 'vars_{{ package_manager }}.yaml'
+  tasks:
+    - name: upgrade all packages
+      ansible.builtin.package:
+        name: "*"
+        state: latest
+        update_cache: yes
+    - name: install alacritty
+      ansible.builtin.package:
+        name: '{{ alacritty }}'
+        state: latest
