@@ -1,2 +1,3 @@
 - import_playbook: shell.yaml
 - import_playbook: flatpaks.yaml
+- import_playbook: bitwarden.yaml
