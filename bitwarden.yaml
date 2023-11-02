@@ -1,5 +1,10 @@
-- name: download bitwarden
-  get_url:
-    url: https://vault.bitwarden.com/download/?app=desktop&platform=linux
-    dest: '/home/{{ user }}/bin/bitwarden'
-    mode: '0755'
+- hosts: local
+  connection: local
+  vars_files:
+    - 'vars_{{ package_manager }}.yaml'
+  tasks:
+    - name: download bitwarden
+      get_url:
+        url: https://vault.bitwarden.com/download/?app=desktop&platform=linux
+        dest: '/home/{{ user }}/bin/bitwarden'
+        mode: '0755'
