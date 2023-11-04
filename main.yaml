@@ -3,3 +3,4 @@
 - import_playbook: bitwarden.yaml
 - import_playbook: alacritty.yaml
 - import_playbook: obsidian.yaml
+- import_playbook: fonts.yaml
