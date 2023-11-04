@@ -1,0 +1,7 @@
+- hosts: local
+  connection: local
+  vars_files:
+    - 'vars_{{ package_manager }}.yaml'
+  tasks:
+    - name: install starship
+      ansible.builtin.command: "curl -sS https://starship.rs/install.sh | sh"
