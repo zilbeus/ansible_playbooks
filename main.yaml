@@ -6,3 +6,4 @@
 - import_playbook: fonts.yaml
 - import_playbook: ui.yaml
 - import_playbook: cli_tools.yaml
+- import_playbook: tools.yaml
