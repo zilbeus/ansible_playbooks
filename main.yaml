@@ -9,3 +9,4 @@
 - import_playbook: tools.yaml
 - import_playbook: dotfiles.yaml
 - import_playbook: starship.yaml
+- import_playbook: notes.yaml

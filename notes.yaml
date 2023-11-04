@@ -1,0 +1,13 @@
+- hosts: local
+  connection: local
+  vars_files:
+    - 'vars_{{ package_manager }}.yaml'
+  tasks:
+    - name: create directory for notes
+      ansible.builtin.command: "mkdir /home/{{ user }}/notes"
+      args:
+        creates: "/home/{{ user }}/notes"
+    - name: clone notes repo
+      ansible.builtin.git:
+        repo: 'https://github.com/z1lq/notes'
+        dest: "/home/{{ user }}/notes"
