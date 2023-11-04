@@ -1,0 +1,23 @@
+- hosts: local
+  connection: local
+  vars_files:
+    - 'vars_{{ package_manager }}.yaml'
+  tasks:
+    - name: download JetBrains Mono NF patched font
+      ansible.builtin.get_url:
+        url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip
+        dest: /tmp/JetBrainsMono.zip
+    - name: extract JetBrains Mono NF font archive
+      ansible.builtin.unarchive:
+        src: /tmp/JetBrainsMono.zip
+        dest: /home/{{ user }}/.local/share/fonts/
+    - name: download JetBrains Mono font
+      ansible.builtin.get_url:
+        url: https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
+        dest: /tmp/JetBrainsMono-2.304.zip
+    - name: extract JetBrains Mono font archive
+      ansible.builtin.unarchive:
+        src: /tmp/JetBrainsMono-2.304.zip
+        dest: /home/{{ user }}/.local/share/fonts/
+    - name: build font cache
+      ansible.builtin.command: fc-cache -r
