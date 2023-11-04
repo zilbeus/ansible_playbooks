@@ -5,3 +5,4 @@
 - import_playbook: obsidian.yaml
 - import_playbook: fonts.yaml
 - import_playbook: ui.yaml
+- import_playbook: cli_tools.yaml
