@@ -1,0 +1,32 @@
+- hosts: local
+  connection: local
+  become: yes
+  become_user: root
+  vars_files:
+    - 'vars_{{ package_manager }}.yaml'
+  tasks:
+    - name: upgrade all packages
+      ansible.builtin.package:
+        name: "*"
+        state: latest
+        update_cache: yes
+    - name: install bpytop
+      ansible.builtin.package:
+        name: bpytop
+        state: latest
+    - name: install htop
+      ansible.builtin.package:
+        name: htop
+        state: latest
+    - name: install fzf
+      ansible.builtin.package:
+        name: htop
+        state: latest
+    - name: install exa
+      ansible.builtin.package:
+        name: exa
+        state: latest
+    - name: install bat
+      ansible.builtin.package:
+        name: bat
+        state: latest
