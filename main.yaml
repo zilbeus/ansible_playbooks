@@ -10,3 +10,4 @@
 - import_playbook: dotfiles.yaml
 - import_playbook: starship.yaml
 - import_playbook: notes.yaml
+- import_playbook: rust.yaml
