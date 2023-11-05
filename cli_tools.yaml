@@ -30,3 +30,7 @@
       ansible.builtin.package:
         name: bat
         state: latest
+    - name: install ranger
+      ansible.builtin.package:
+        name: ranger
+        state: latest
