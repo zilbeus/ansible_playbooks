@@ -34,3 +34,7 @@
       ansible.builtin.package:
         name: corectrl
         state: latest
+    - name: install flameshot
+      ansible.builtin.package:
+        name: flameshot
+        state: latest
