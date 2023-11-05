@@ -30,3 +30,7 @@
       ansible.builtin.package:
         name: thunderbird
         state: latest
+    - name: install corectrl
+      ansible.builtin.package:
+        name: corectrl
+        state: latest
