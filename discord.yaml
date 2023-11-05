@@ -1,0 +1,11 @@
+- hosts: local
+  connection: local
+  vars_files:
+    - 'vars_{{ package_manager }}.yaml'
+  tasks:
+    - name: download discord
+      get_url:
+        url: https://canary.discord.com/api/download?platform=linux&format=tar.gz
+        dest: '/tmp/discord.tar.gz'
+    - name: extract files
+      ansible.builtin.command: "tar xvf /tmp/discord.tar.gz -C /home/{{ user }}/bin/"
