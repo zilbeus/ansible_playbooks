@@ -22,3 +22,7 @@
       ansible.builtin.package:
         name: deluge
         state: latest
+    - name: install conky
+      ansible.builtin.package:
+        name: conky
+        state: latest
