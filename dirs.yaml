@@ -1,0 +1,15 @@
+- hosts: local
+  connection: local
+  become: yes
+  become_user: root
+  vars_files:
+    - 'vars_{{ package_manager }}.yaml'
+  tasks:
+    - name: create projects dir 
+      ansible.builtin.file:
+        path: '/home/{{ user }}/projects'
+        state: directory
+    - name: create bin dir 
+      ansible.builtin.file:
+        path: '/home/{{ user }}/bin'
+        state: directory
