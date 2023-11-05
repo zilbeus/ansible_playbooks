@@ -1,0 +1,54 @@
+- hosts: local
+  connection: local
+  become: yes
+  become_user: root
+  vars_files:
+    - 'vars_{{ package_manager }}.yaml'
+  tasks:
+    - name: upgrade all packages
+      ansible.builtin.package:
+        name: "*"
+        state: latest
+        update_cache: yes
+    - name: install cairo-devel
+      ansible.builtin.package:
+        name: cairo-devel
+        state: latest
+    - name: install pango-devel
+      ansible.builtin.package:
+        name: pango-devel
+        state: latest
+    - name: install atk-devel
+      ansible.builtin.package:
+        name: atk-devel
+        state: latest
+    - name: install cairo-gobject-devel
+      ansible.builtin.package:
+        name: cairo-gobject-devel
+        state: latest
+    - name: install gdk-pixbuf2-devel
+      ansible.builtin.package:
+        name: gdk-pixbuf2-devel
+        state: latest
+    - name: install gtk3-devel
+      ansible.builtin.package:
+        name: gtk3-devel
+        state: latest
+    - name: install gtk-layer-shell-devel
+      ansible.builtin.package:
+        name: gtk-layer-shell-devel
+        state: latest
+    - name: clone eww repo
+      ansible.builtin.git:
+        repo: 'https://github.com/elkowar/eww'
+        dest: "/home/{{ user }}/projects/"
+    - name: build
+      ansible.builtin.command: 'cargo build --release --no-default-features --features=wayland'
+      args:
+        chdir: '/home/{{ user }}/projects/eww'
+    - name: change executable permissions
+      ansible.builtin.command: 'chmod +x ./eww'
+      args:
+        chdir: '/home/{{ user }}/projects/eww/target/release'
+    - name: copy executable to user's bin dir
+      ansible.builtin.command: 'cp ./eww /home/{{ user }}/bin/'

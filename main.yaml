@@ -12,3 +12,4 @@
 - import_playbook: starship.yaml
 - import_playbook: notes.yaml
 - import_playbook: rust.yaml
+- import_playbook: eww.yaml
