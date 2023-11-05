@@ -26,3 +26,7 @@
       ansible.builtin.package:
         name: conky
         state: latest
+    - name: install thunderbird
+      ansible.builtin.package:
+        name: thunderbird
+        state: latest
