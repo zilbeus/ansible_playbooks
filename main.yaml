@@ -14,3 +14,4 @@
 - import_playbook: rust.yaml
 - import_playbook: eww.yaml
 - import_playbook: discord.yaml
+- import_playbook: golang.yaml
