@@ -1,6 +1,10 @@
 - hosts: local
   connection: local
   tasks:
+    - name: install flatpak
+      ansible.builtin.package:
+        name: flatpak
+        state: latest
     - name: enable flatpak repo
       community.general.flatpak_remote:
         name: flathub
