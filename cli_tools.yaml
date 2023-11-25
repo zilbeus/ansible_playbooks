@@ -18,6 +18,10 @@
       ansible.builtin.package:
         name: htop
         state: latest
+    - name: install eza
+      ansible.builtin.package:
+        name: eza
+        state: latest
     - name: install fzf
       ansible.builtin.package:
         name: htop
