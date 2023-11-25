@@ -22,10 +22,6 @@
       ansible.builtin.package:
         name: htop
         state: latest
-    - name: install exa
-      ansible.builtin.package:
-        name: exa
-        state: latest
     - name: install bat
       ansible.builtin.package:
         name: bat
