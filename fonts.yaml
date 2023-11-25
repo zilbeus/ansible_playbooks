@@ -3,6 +3,10 @@
   vars_files:
     - 'vars_{{ package_manager }}.yaml'
   tasks:
+    - name: create fonts dir 
+      ansible.builtin.file:
+        path: '/home/{{ user }}/.local/share/fonts'
+        state: directory
     - name: download JetBrains Mono NF patched font
       ansible.builtin.get_url:
         url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip
