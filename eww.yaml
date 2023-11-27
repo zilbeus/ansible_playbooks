@@ -1,40 +1,46 @@
 - hosts: local
   connection: local
-  become: yes
-  become_user: root
   vars_files:
     - 'vars_{{ package_manager }}.yaml'
   tasks:
     - name: upgrade all packages
+      become: yes
       ansible.builtin.package:
         name: "*"
         state: latest
         update_cache: yes
     - name: install cairo-devel
+      become: yes
       ansible.builtin.package:
         name: cairo-devel
         state: latest
     - name: install pango-devel
+      become: yes
       ansible.builtin.package:
         name: pango-devel
         state: latest
     - name: install atk-devel
+      become: yes
       ansible.builtin.package:
         name: atk-devel
         state: latest
     - name: install cairo-gobject-devel
+      become: yes
       ansible.builtin.package:
         name: cairo-gobject-devel
         state: latest
     - name: install gdk-pixbuf2-devel
+      become: yes
       ansible.builtin.package:
         name: gdk-pixbuf2-devel
         state: latest
     - name: install gtk3-devel
+      become: yes
       ansible.builtin.package:
         name: gtk3-devel
         state: latest
     - name: install gtk-layer-shell-devel
+      become: yes
       ansible.builtin.package:
         name: gtk-layer-shell-devel
         state: latest
