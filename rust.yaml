@@ -1,7 +1,0 @@
-- hosts: local
-  connection: local
-  vars_files:
-    - 'vars_{{ package_manager }}.yaml'
-  tasks:
-    - name: install rust
-      shell: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -y"
