@@ -1,0 +1,10 @@
+- name: install curl
+  ansible.builtin.package:
+    name: curl
+    state: latest
+- name: install git
+  ansible.builtin.package:
+    name: git
+    state: latest
+- name: download asdf
+  ansible.builtin.shell: git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
