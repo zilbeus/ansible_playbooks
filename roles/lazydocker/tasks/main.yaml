@@ -1,0 +1,6 @@
+- name: add asdf lazydocker plugin
+  ansible.builtin.shell: asdf plugin add lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
+- name: install lazydocker via asdf
+  ansible.builtin.shell: asdf install lazydocker latest
+- name: set lazydocker package global version
+  ansible.builtin.shell: asdf global lazydocker latest
