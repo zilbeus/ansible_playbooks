@@ -1,2 +1,7 @@
+- name: download starship install script
+  ansible.builtin.get_url: 
+    url: "https://starship.rs/install.sh"
+    dest: "/tmp/install.sh"
+
 - name: install starship
-  ansible.builtin.command: "curl -sS https://starship.rs/install.sh | sh"
+  ansible.builtin.command: "sh /tmp/install.sh --force"
