@@ -12,7 +12,8 @@
   when: ansible_facts['distribution'] == 'Fedora'
 
 - name: download ghostty .deb package
-  get_url: https://github.com/mkasberg/ghostty-ubuntu/releases/download/1.0.1-0-ppa1/ghostty_1.0.1-0.ppa1_amd64_22.04.deb
+  ansible.builtin.get_url: 
+    url: https://github.com/mkasberg/ghostty-ubuntu/releases/download/1.0.1-0-ppa1/ghostty_1.0.1-0.ppa1_amd64_22.04.deb
   when: ansible_facts['distribution'] == 'Ubuntu'
 
 - name: install ghostty .deb package
