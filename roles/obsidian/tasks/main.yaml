@@ -1,5 +1,18 @@
+- name: download appimagelauncher
+  get_url:
+    url: https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher-2.2.0-travis995.0f91801.x86_64.rpm
+    dest: '/home/{{ user }}/bin/appimagelauncher.rpm'
+    owner: '{{ user }}'
+
+- name: install appimagelauncher
+  ansible.builtin.dnf:
+    name: '/home/{{ user }}/bin/appimagelauncher.rpm'
+    state: present
+    disable_gpg_check: true
+    
 - name: download obsidian
   get_url:
-    url: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/Obsidian-1.4.16.AppImage
-    dest: '/home/{{ user }}/bin/obsidian'
+    url: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.10/Obsidian-1.8.10.AppImage
+    dest: '/home/{{ user }}/bin/obsidian.AppImage'
     mode: '0755'
+    owner: '{{ user }}'

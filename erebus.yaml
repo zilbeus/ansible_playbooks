@@ -2,6 +2,8 @@
   connection: local
   become: yes
   become_user: root
+  vars:
+    user: zlq
   roles:
     - terminal
     - starship
