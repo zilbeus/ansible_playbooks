@@ -1,0 +1,5 @@
+- name: install lnav via dnf
+  ansible.builtin.dnf:
+    name: "lnav"
+    state: present
+  when: ansible_facts['distribution'] == 'Fedora'
