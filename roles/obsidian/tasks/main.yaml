@@ -16,3 +16,19 @@
     dest: '/home/{{ user }}/bin/obsidian.AppImage'
     mode: '0755'
     owner: '{{ user }}'
+
+- name: download nvm
+  get_url:
+    url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh
+    dest: '/tmp/nvm_install.sh'
+    mode: '0755'
+    owner: '{{ user }}'
+
+- name: create nvm config dir
+  ansible.builtin.file:
+    path: '/home/{{ user }}/.config/nvm'
+    state: directory
+
+- name: install nvm via downloaded script
+  become_user: '{{ user }}'
+  ansible.builtin.command: 'bash /tmp/nvm_install.sh'
