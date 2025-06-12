@@ -28,6 +28,8 @@
   ansible.builtin.file:
     path: '/home/{{ user }}/.config/nvm'
     state: directory
+    owner: '{{ user }}'
+    group: '{{ user }}'
 
 - name: install nvm via downloaded script
   become_user: '{{ user }}'
