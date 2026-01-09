@@ -1,0 +1,15 @@
+- name: download opencode install script
+  ansible.builtin.get_url:
+    url: "https://opencode.ai/install"
+    dest: "/tmp/opencode_install.sh"
+    mode: '0755'
+
+- name: install opencode
+  ansible.builtin.command: "bash /tmp/opencode_install.sh"
+  args:
+    creates: "/home/{{ user }}/.opencode/bin/opencode"
+
+- name: verify opencode installation
+  ansible.builtin.command: "opencode --version"
+  register: opencode_version
+  changed_when: false
