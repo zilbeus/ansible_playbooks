@@ -1,0 +1,24 @@
+- name: install dnf-plugins-core
+  ansible.builtin.package:
+    name: dnf-plugins-core
+    state: present
+
+- name: enable git-credential-manager COPR repo
+  ansible.builtin.command:
+    cmd: dnf copr enable vdanielmo/git-credential-manager -y
+    creates: /etc/yum.repos.d/_copr_vdanielmo-git-credential-manager.repo
+
+- name: install git
+  ansible.builtin.package:
+    name: git
+    state: present
+
+- name: install git-delta
+  ansible.builtin.package:
+    name: git-delta
+    state: present
+
+- name: install git-credential-manager
+  ansible.builtin.package:
+    name: git-credential-manager
+    state: present

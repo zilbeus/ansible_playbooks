@@ -1,5 +1,6 @@
 dependencies:
   - { role: system_upgrade, tags: [system_upgrade] }
+  - { role: version_control, tags: [version_control] }
   - { role: bpytop, tags: [bpytop, monitoring] }
   - { role: htop, tags: [htop, monitoring] }
   - { role: eza, tags: [eza, filesystem] }
