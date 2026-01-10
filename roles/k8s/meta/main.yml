@@ -1,0 +1,2 @@
+dependencies:
+  - { role: k9s, tags: [k9s, k8s] }
