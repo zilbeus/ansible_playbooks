@@ -2,6 +2,18 @@
   connection: local
   become: yes
   become_user: root
+
+  pre_tasks:
+    - name: Update package cache
+      ansible.builtin.dnf:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Upgrade all packages
+      ansible.builtin.package:
+        name: "*"
+        state: latest
+
   roles:
     - dotfiles
     - terminal
