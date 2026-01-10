@@ -1,2 +1,3 @@
 dependencies:
   - { role: git, tags: [git, version_control] }
+  - { role: lazygit, tags: [lazygit, version_control] }
