@@ -1,0 +1,10 @@
+- name: install file package (required for yazi)
+  ansible.builtin.package:
+    name: file
+    state: present
+
+- name: install yazi via cargo
+  ansible.builtin.command:
+    cmd: "cargo install --force yazi-build"
+  become: yes
+  become_user: "{{ user }}"
