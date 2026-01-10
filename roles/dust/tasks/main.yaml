@@ -1,0 +1,5 @@
+- name: install dust via cargo
+  ansible.builtin.command:
+    cmd: "cargo install du-dust"
+  become: yes
+  become_user: "{{ user }}"
