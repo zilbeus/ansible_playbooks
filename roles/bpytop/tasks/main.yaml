@@ -1,0 +1,4 @@
+- name: install bpytop
+  ansible.builtin.package:
+    name: bpytop
+    state: latest

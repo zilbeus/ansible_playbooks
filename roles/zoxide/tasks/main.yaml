@@ -1,0 +1,4 @@
+- name: install zoxide
+  ansible.builtin.package:
+    name: zoxide
+    state: latest

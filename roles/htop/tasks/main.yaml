@@ -1,0 +1,4 @@
+- name: install htop
+  ansible.builtin.package:
+    name: htop
+    state: latest

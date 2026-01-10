@@ -1,0 +1,3 @@
+dependencies:
+  - { role: golang, tags: [golang] }
+  - { role: rust, tags: [rust] }
