@@ -2,3 +2,11 @@
   ansible.builtin.package:
     name: fzf
     state: latest
+
+- name: clone fzf-tab repository
+  ansible.builtin.git:
+    repo: "https://github.com/Aloxaf/fzf-tab.git"
+    dest: "/home/{{ user }}/bin/fzf-tab"
+    version: main
+  tags:
+    - fzf-tab
