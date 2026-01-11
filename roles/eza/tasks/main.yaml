@@ -1,4 +1,5 @@
-- name: install eza
-  ansible.builtin.package:
-    name: eza
-    state: latest
+- name: install eza via cargo
+  ansible.builtin.command:
+    cmd: "cargo install eza"
+  become: yes
+  become_user: "{{ user }}"

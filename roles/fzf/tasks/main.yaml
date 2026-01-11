@@ -7,6 +7,6 @@
   ansible.builtin.git:
     repo: "https://github.com/Aloxaf/fzf-tab.git"
     dest: "/home/{{ user }}/bin/fzf-tab"
-    version: main
+    version: master
   tags:
     - fzf-tab
