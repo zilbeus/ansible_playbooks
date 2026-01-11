@@ -12,5 +12,4 @@ dependencies:
   - { role: eza, tags: [eza, filesystem] }
   - { role: fzf, tags: [fzf, search] }
   - { role: bat, tags: [bat, filesystem] }
-  - { role: ranger, tags: [ranger, filesystem] }
   - { role: zoxide, tags: [zoxide, navigation] }
