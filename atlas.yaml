@@ -4,6 +4,7 @@
   become_user: root
   vars:
     user: zilq
+    package_manager: dnf
 
   pre_tasks:
     - name: Update package cache
