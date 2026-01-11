@@ -1,7 +1,5 @@
 - name: install k9s via go
   ansible.builtin.command:
     cmd: "go install github.com/derailed/k9s@latest"
-    environment:
-      PATH: "/usr/local/go/bin:{{ ansible_env.PATH }}"
   become: yes
   become_user: "{{ user }}"
