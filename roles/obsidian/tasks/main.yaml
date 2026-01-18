@@ -1,36 +1,6 @@
-- name: download appimagelauncher
-  get_url:
-    url: https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher-2.2.0-travis995.0f91801.x86_64.rpm
-    dest: '/home/{{ user }}/bin/appimagelauncher.rpm'
-    owner: '{{ user }}'
-
-- name: install appimagelauncher
-  ansible.builtin.dnf:
-    name: '/home/{{ user }}/bin/appimagelauncher.rpm'
-    state: present
-    disable_gpg_check: true
-    
 - name: download obsidian
   get_url:
-    url: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.10/Obsidian-1.8.10.AppImage
-    dest: '/home/{{ user }}/bin/obsidian.AppImage'
+    url: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.11.4/Obsidian-1.11.4.AppImage
+    dest: '/home/{{ user }}/Applications/obsidian.appimage'
     mode: '0755'
     owner: '{{ user }}'
-
-- name: download nvm
-  get_url:
-    url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh
-    dest: '/tmp/nvm_install.sh'
-    mode: '0755'
-    owner: '{{ user }}'
-
-- name: create nvm config dir
-  ansible.builtin.file:
-    path: '/home/{{ user }}/.config/nvm'
-    state: directory
-    owner: '{{ user }}'
-    group: '{{ user }}'
-
-- name: install nvm via downloaded script
-  become_user: '{{ user }}'
-  ansible.builtin.command: 'bash /tmp/nvm_install.sh'
